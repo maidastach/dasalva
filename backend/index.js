@@ -47,19 +47,19 @@ const db = mongoose.connect(
 )
 
 app.use(cors(corsOptions));
-app.use('/api/stripe', StripeRouter);
+app.use('******', StripeRouter);
 
 app.use(json());
 //app.use(protector);
 
-app.use('/api/users', UserRouter);
-app.use('/api/admin', isAdmin, AdminRouter);
-app.use('/api/auth', AuthRouter);
-app.use('/api/products', ProductRouter);
-app.use('/api/orders', isLoggedIn, OrderRouter);
+app.use('*****', UserRouter);
+app.use('*****', isAdmin, AdminRouter);
+app.use('*****', AuthRouter);
+app.use('*****', ProductRouter);
+app.use('*****', isLoggedIn, OrderRouter);
 app.use('/', HomeRouter)
 
-app.use('/uploads', express.static(path.join(__dirname, '../uploads')))
+app.use('*****', express.static(path.join(__dirname, '../uploads')))
 app.use(express.static(path.join(__dirname, '../public')));
 app.get('*', (req, res) => res.sendFile(path.join(__dirname, '..', 'public', 'index.html')));
 
