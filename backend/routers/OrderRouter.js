@@ -30,8 +30,3 @@ OrderRouter.get(
 );
 
 export default OrderRouter; 
-// //STRIPE CREATE CHECKOUT SESSION
-// OrderRouter.post(
-//   '/create-checkout-session/:id', 
-//   expressAsyncHandler(stripeCheckout)
-// );
