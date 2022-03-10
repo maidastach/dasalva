@@ -1,0 +1,93 @@
+<div>
+    <h1 class="text-center mt-4">Order {{order?._id}}</h1>
+    <h3 *ngIf='order?.isPaid && !order?.isDelivered' class="text-center mt-2 text-success">
+        Thanks! Payment was successful.<br> 
+        Within 24h We will communicate the {{ order?.isPickUp ? 'Pick Up' : 'Delivery' }} date by email!</h3>
+        <h3 *ngIf='!order?.isPaid' class="text-center mt-2 text-success">
+            Order Placed! <br> Please pay now
+        </h3>
+    <div class="order-info row p-2 mt-4 order">
+        <div class="col-6 p-4">
+            <div class="row pb-3 placeorder-border">
+                <h2>Your Details</h2>
+                <div class="ms-2 col-md-8 text-primary">
+                    {{user?.fname}} {{user?.lname}}
+                    <br>{{user?.email}}
+                    <br>{{user?.telephone}}
+                </div>
+            </div>
+            <div class="row mt-4 pb-3 placeorder-border">
+                <h2>{{order?.isPickUp ? 'Pick Up Location' : 'Shipping'}}</h2>
+                <div class="ms-2 col-md-8 text-primary">
+                    {{order?.shipping?.addressA}}
+                    <span *ngIf="order?.shipping?.addressB"><br>{{order?.shipping?.addressB}}</span>
+                    <br>{{order?.shipping?.city}} 
+                    <br>{{order?.shipping?.postalCode}} 
+                    <br>{{order?.shipping?.state}}
+                </div>
+                <div *ngIf="order?.isDelivered && order?.isPickUp" class="text-success">Picked up on {{deliveryDate}}</div>
+                <div *ngIf="!order?.isDelivered && order?.isPickUp" class="text-danger">Not Picked Up</div>
+                <div *ngIf="order?.isDelivered && !order?.isPickUp" class="text-success">Delivered on {{deliveryDate}}</div>
+                <div *ngIf="!order?.isDelivered && !order?.isPickUp" class="text-danger">Not Delivered</div>
+            </div>
+            <div class="row mt-4 pb-3 placeorder-border">
+                <h2>Payment</h2>
+                <div class="ms-2 col-md-8 text-primary">
+                    Credit/Debit Card
+                </div>
+                <div *ngIf="order?.isPaid" class="text-success">Paid on {{payDate}}</div>
+                <div *ngIf="!order?.isPaid" class="text-danger">Not Paid</div>
+            </div>
+            
+        </div>
+        <ul class="list-unstyled col-6 p-4 text-end">
+            <li>
+                <h2>Order Summary</h2>
+            </li>
+            <li class="fw-bold">
+                <div class="ms-2">Pizzas</div>
+                <div class="ms-4 text-primary">${{order?.itemsPrice}}</div>
+            </li>
+            <li class="mt-2 fw-bold">
+                <div class="ms-2">{{order?.isPickUp ? 'Pick Up' : 'Shipping'}}</div>
+                <div class="ms-4 text-primary">{{order?.shippingPrice ? '$' + order?.shippingPrice : 'FREE'}}</div>
+            </li>
+            <!-- <li class="mt-2 fw-bold">
+                <div class="ms-2">Tax</div>
+                <div class="ms-4 text-primary">${{order?.taxPrice}}</div>
+            </li> -->
+            <li class="total mt-2 fw-bold">
+                <div class="ms-2 text-success">Order Total</div>
+                <div class="ms-4 text-primary">${{order?.totalPrice}}</div>
+            </li>
+            <li *ngIf="!order?.isPaid && !currentUser?.isAdmin" class="mt-2 d-grid col-6 ms-auto" id="stripe-list">
+                <button [disabled]="loading" (click)="stripePayment()" id="stripe-button" class="btn btn-primary btn-lg">
+                    {{loading ? 'Loading...' : 'Pay'}}
+                </button>
+            </li> 
+            <li class="d-grid col-6 ms-auto">
+                <button *ngIf="order?.isPaid && !order?.isDelivered && currentUser?.isAdmin" id="deliver-order-button" class="btn btn-primary btn-lg">Deliver Order</button>
+            </li>
+
+        </ul>
+        
+        <ul class="new-cart-list-container list-unstyled row p-4">
+            <li class="row">
+                <h2 class="col-6 col-sm-11">Shopping Cart</h2>
+                <div class="col-6 col-sm-1 align-self-end text-end">Price</div>
+            </li>
+                <li *ngFor="let item of order?.orderItems" class="row fs-5">
+                    <div class="cart-image col-4 align-self-center">
+                        <img class="img-thumbnail" src="/{{item.image[0]}}" alt="{{item.title}}">
+                    </div>
+                    <div class="cart-name col-4 align-self-center">
+                        <div>
+                            <a class="nav-link fw-bold" routerLink="/product/{{item._id}}">{{item.title}}</a>
+                        </div>
+                        <div class="ps-3"> Qty: {{item.quantity}} </div>
+                    </div>
+                    <div class="cart-price col-4 text-end fw-bold align-self-center">{{item.price * item.quantity}}$</div>
+                </li> 
+        </ul>  
+    </div>
+</div>

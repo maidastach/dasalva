@@ -1,0 +1,31 @@
+.item-details {
+    //margin-top: 5rem;
+    margin-inline: .5rem;
+  }
+  
+  .item-details-image img {
+    height: 48vmax;
+    width: 48vmax;
+  }
+  
+  .item-details-image {
+    height: max-content;
+  }
+  
+  .item-details .carousel {
+    width: 48vmax;
+  }
+  
+  
+  .item-details-info li {
+    margin-bottom: 1rem;
+  }
+
+  .thumb {
+    width: 6vw;
+    height: 6vw;
+    margin-top: 0.5rem;
+  }
+  .thumb-border {
+    border: 1px solid black;
+  }

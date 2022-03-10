@@ -1,0 +1,98 @@
+<a class='ms-4' routerLink="/products">Back to Products</a> 
+<div class="item-details row pt-md-5">
+  <div id="carouselExampleIndicators" class="carousel slide item-details-image col-sm-10 col-lg-6 col-md-8" data-bs-ride="carousel">
+ <!--      <ol class="carousel-indicators">
+        <li 
+          *ngFor="let image of product?.image; let i = index" 
+          [ngClass]="i === 0 ? 'active' : ''" 
+          data-bs-target=#carouselExampleIndicators 
+          data-bs-slide-to='i'
+        >
+        </li>
+      </ol> -->
+      <div class="carousel-inner item-details-image">
+        <div *ngFor="let image of product?.image; let i = index" [ngClass]="i === 0 ? 'carousel-item active' : 'carousel-item'">
+            <img src="/{{image}}" class="d-block img-thumbnail" alt="{{product?.title}}">
+        </div> 
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" target='_self' role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" target='_self' role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </a>
+    </div>
+
+
+   <div class="item-details-info col-md-6">
+      <ul class="list-unstyled row">
+        <li><h1 class="fw-bold mt-3 mt-md-0">{{product?.title}} 9"</h1></li>
+        <!-- <li>${Rating.render({
+          value: product.review.rating,
+          text: `<span class="ps-2">${product.review.numReviews}</span> <a class="p-0" href="#reviews"> reviews</a>`,
+            })} 
+        </li> -->
+       <li class="h4">Price: <strong>${{product?.price}}</strong><br> <small>(for business price, please enquire within)</small></li>
+        <li class="h4">Size: <strong>approx 9inch (22-25cm)</strong></li>
+        <li class="h4">Ingedients:
+          <p class="h5 m-2">
+            <em [innerHTML]="product?.description"></em>
+            <em>
+              <br> <br> 
+              <span style="color: #c3151c">CONTAINS GLUTEN</span>  
+              <br>
+              <span style="color: #c3151c">MAY CONTAIN TRACES OF NUTS</span>
+            </em>
+          </p>
+        </li>
+        <li><button id="add-button" class="btn btn-primary btn-lg" (click)="addToCart($event)">Add To Cart</button></li>
+      </ul>
+
+      <!-- <ul class="list-unstyled row col-md-12 pt-5 m-auto">
+            <li class="h4">Write a Review</li>
+            <li>
+                  <form id="review-form">
+                    <textarea name="text" class='form-control textarea' required></textarea>
+                    <input id="star" type="number" name="star" value='' required style="visibility: hidden;height: 0;width: 0;" />
+                    <div class="row star-row">
+                      <span class="col-1 star"><i id='1' class='fa fa-star-o rating rating-down rating-voto'></i></span>
+                      <span class="col-1 star"><i id='2' class="fa fa-star-o rating rating-down rating-voto"></i></span>
+                      <span class="col-1 star"><i id='3' class='fa fa-star-o rating rating-down rating-voto'></i></span>
+                      <span class="col-1 star"><i id='4' class="fa fa-star-o rating rating-down rating-voto"></i></span>
+                      <span class="col-1 star"><i id='5' class="fa fa-star-o rating rating-down rating-voto"></i></span>
+                    </div>
+                    <div class="text-md-end">
+                      <button id="review-button" class="btn btn-info" value="{{product?._id}}" type="submit">Submit</button>
+                    </div>
+                  </form>
+            </li>
+          </ul> -->
+</div>
+<!-- <ul class="list-unstyled col-12 mt-5" id="reviews">
+        <li class="h2 fw-bold mt-4">
+            Reviews
+        </li>
+      ${recensioni.map(recensione => `
+        <li class="col-lg-6 mt-4 m-md-4">
+            <div class="row">
+              <div class="col-4 align-self-end fw-bold">
+              ${recensione.name}
+              </div>
+              <div class="col-4 align-self-end fw-bold">
+                <small>${recensione.date.substr(0, 10).split('-').reverse().join('-')}</small>
+              </div>
+              <div class="col-4 pe-0">
+              ${Rating.render({
+                value: `${recensione.stars}`
+              })}
+              </div>
+            </div>
+            <div class="row ms-4 mt-3 h5">
+              <p>${recensione.text}</p>
+            </div>  
+        </li>
+      `).join('\n')}
+    </ul> -->
+</div>

@@ -1,0 +1,54 @@
+<div class="new-cart row p-md-4">
+    <ul class="new-cart-list-container list-unstyled mb-4">
+        <li class="row">
+            <h3 class="col-9 col-md-11">Shopping Cart {{cart.length > 0 ? '(' + cart.length + ')' : ''}}</h3>
+            <h3 *ngIf='cart.length > 0' class="col-3 col-md-1">Price</h3>
+        </li>
+        <div *ngIf='cart.length < 1; else cartTemplate'>
+            Cart is Empty. 
+            <a class="nav-link" routerLink="/products/">Go Shopping</a>
+        </div>
+        <ng-template #cartTemplate>
+            <li *ngFor='let item of cart' class="row">
+                <div class="new-cart-image align-self-center col-4 col-md-4">
+                    <img class="img-thumbnail" src="/{{item.image}}" alt="{{item.title}}">
+                </div>
+                <div class="new-cart-name align-self-center col-5 col-md-7">
+                        <a class="nav-link" routerLink="/products/{{item._id}}">
+                            <h3>{{item.title}}</h3>
+                        </a>
+                    <div class="ps-3">
+                        Quantity: 
+                                <select class="form-select new-cart-select" id="{{item._id}}" (change)='updateCart($event)'>
+                                    <option *ngFor="let x of countInStock" [selected]='item.quantity === x' value="{{x}}">{{x}}</option>
+                                </select>
+                    </div>
+                </div>
+                <div class="new-cart-price align-self-center col-3 col-md-1">
+                    <h4>{{item.price}}$</h4>
+                    <button type="button" class="delete-button btn btn-sm btn-danger" id="{{item._id}}" (click)='deleteItem($event)'>
+                        Delete
+                    </button>
+                </div>
+            </li>
+        
+        
+    
+    <button id="checkout-button" class="btn btn-sm btn-primary mt-2" routerLink="/products">
+        Add more Pizza
+    </button>
+    <div *ngIf='cart.length > 0' class="new-cart-action mt-5 mt-md-0">
+        <h5>
+            {{totalItems()}} Pack (x3 Pizzas)
+        </h5>
+        <h3>
+            Subtotal: {{totalSum()}}$
+        </h3>
+        <button id="checkout-button" class="btn btn-lg btn-primary mt-2" routerLink="/user/place-order">
+            Proceed to Checkout
+        </button>
+    </div>
+
+</ng-template>
+</ul>
+</div>

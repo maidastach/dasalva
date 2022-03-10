@@ -1,0 +1,14 @@
+.contact-footer {
+    height: 5rem;
+    margin-top: 5rem;
+    text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: #c3151c;
+  &:hover {
+    color: #a6676a !important;
+  }
+}
+

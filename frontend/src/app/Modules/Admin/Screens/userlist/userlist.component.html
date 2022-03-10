@@ -1,0 +1,45 @@
+<div class="dashboard row">
+    <div class="dashboard-content col">
+        <h1>Users</h1>
+
+        <div class="order-list table-responsive">
+
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>NAME</th> 
+                        <th>EMAIL</th>
+                        <th>TELEPHONE</th>
+                        <th>ADDRESS</th>
+                        <th>REGISTERED ON</th>
+                        <th>UPDATED ON</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngIf="loading; else usersTemp">
+                        <td colspan="6">No Users Found.</td>
+                    </tr>
+                    <ng-template #usersTemp>
+                        <tr *ngFor="let user of users">
+                            <td><span class="text-primary">{{user._id}}</span></td>
+                            <td><span class="fw-bold">{{user.fname}} {{user.lname}}</span></td>
+                            <td><span [ngClass]="user.isVerified ? 'text-success' : 'text-primary'">{{user.email}}</span></td>
+                            <td><span class="text-primary">{{user.telephone}}</span></td>
+                            <td>
+                                <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                    <option selected>{{user.shipping.length}} Address</option>
+                                    <option *ngFor="let address of user.shipping">{{address.addressA}} {{address.addressB}} {{address.city}} {{address.postalCode}} {{address.state}}</option>
+                                </select>
+                            </td>
+                            <td><span class="text-success fw-bold">{{user.createdAt | date: 'LLL d, h:mm a'}}</span></td>
+                            <td><span class="text-success fw-bold">{{user.updatedAt | date: 'LLL d, h:mm a'}}</span></td>
+                        </tr>
+                    </ng-template>
+                    
+                </tbody>
+            </table>
+        </div>                    
+    </div>
+    
+</div>

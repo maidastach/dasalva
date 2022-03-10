@@ -1,0 +1,20 @@
+.info-page {
+    margin-bottom: 4rem;
+    margin-inline: .5rem;
+}
+h1{
+    color: #c3151c;
+}
+.info-page p {
+    font-size: larger;
+    line-height: 2rem;
+    margin-left: 1rem;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .info-page p {
+      font-size: initial;
+      line-height: 2rem;
+      margin-left: 1rem;
+    }
+  }

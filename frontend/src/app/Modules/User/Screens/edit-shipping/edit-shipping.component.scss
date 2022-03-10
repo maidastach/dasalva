@@ -1,0 +1,12 @@
+.button-container{
+    display: flex;
+    justify-content: space-between;
+    li{
+        width: 50%;
+        display: flex;
+        justify-content: center;
+    }
+}
+#shipping-content{
+    margin: auto;
+}

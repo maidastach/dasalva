@@ -1,0 +1,8 @@
+
+<app-header></app-header>
+<app-popup [errorMsg]="errorMsg" [successMsg]="successMsg" *ngIf="errorMsg || successMsg"></app-popup>
+<div class="app-container">
+    <!-- <div class='loading' *ngIf="loading"></div> -->
+    <router-outlet></router-outlet>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,84 @@
+<form [formGroup]='shippingForm' class="shipping-form" (submit)="addShippingAddress()">
+    <ul class="row form-items list-unstyled px-2 px-md-5">
+        <li class="mt-5 mb-3">
+            <h1>Create New Address</h1>
+        </li>
+        <div class="row" id="shipping-content">
+            <li class="col-md-6 form-floating mb-3">
+                <input 
+                    #address 
+                    class="form-control" 
+                    type="text" 
+                    formControlName='addressA' 
+                    placeholder="1234 Main St" 
+                    [ngClass]="
+                        shippingForm.controls['addressA'].pristine 
+                            ? ''
+                            : shippingForm.controls['addressA'].errors
+                                ? 'is-invalid' 
+                                : 'is-valid'
+                    "
+                />
+                <label for="address">Address Line 1</label>
+            </li>
+            <li class="col-md-6 form-floating mb-3">
+                <input class="form-control" type="text" formControlName='addressB' placeholder="Floor, Studio, Apartment" />
+                <label for="address2">Address Line 2</label>
+            </li>
+            <li class="col-md-4 form-floating mb-3">
+                <input 
+                    class="form-control" 
+                    type="text" 
+                    formControlName='city' 
+                    placeholder="City/Suburb"
+                    [ngClass]="
+                        shippingForm.controls['city'].pristine 
+                            ? ''
+                            : shippingForm.controls['city'].errors
+                                ? 'is-invalid' 
+                                : 'is-valid'
+                    " 
+                />
+                <label for="city">Suburb</label>
+            </li>
+            <li class="col-md-4 form-floating mb-3" aria-describedby="postcodeHelpBlock">
+                <input 
+                    class="form-control" 
+                    type="text" 
+                    formControlName='postalCode' 
+                    placeholder="1234" 
+                    [ngClass]="
+                        shippingForm.controls['postalCode'].pristine 
+                            ? ''
+                            : shippingForm.controls['postalCode'].hasError('validatePostalCode') 
+                                ? 'is-invalid' 
+                                : 'is-valid'
+                    "
+                    />
+                <label for="postalCode">PostCode</label>
+                <div id="postcodeHelpBlock" class="form-text form-small text-center">
+                    Sydney Limited Suburbs<br>
+                    If your area is not covered you might consider to Pick Up.   
+                </div>    
+            </li>
+            <li class="col-md-4 form-floating mb-3">
+                <select class="form-select input-select" formControlName='state' >
+                    <option value="NSW">NSW</option>
+                </select>
+                <label for="country">State</label>
+            </li>
+        </div>
+        <div class="button-container">
+            <li class="my-5">
+                <button [disabled]="!shippingForm.valid || loading" type="submit" class="btn w-75 btn-primary">{{ loading ? 'Loading...' : 'Create Address' }}</button>
+            </li>
+            <li class="my-5">
+                <button type="button" class="btn w-75 w-md-50  btn-primary" (click)="pickupButton()">Pick Up</button>
+            </li>
+            <li class="my-5">
+                <button type="button" class="btn w-75 btn-primary" (click)="backButton()">Back</button>
+            </li>
+        </div>
+        
+    </ul>
+</form>

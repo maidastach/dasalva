@@ -1,0 +1,43 @@
+<ul class="products-list container-fluid list-unstyled">
+        <div *ngFor="let product of products; let i = index" [ngClass]="(i % 2 !== 0) ? 'row justify-content-start' : 'row justify-content-end'">
+            <div class="div-border m-0"></div>
+            <li class= "product-single row col-md-9">
+                <div class="product-images col-sm-8 col-md-6">
+                    <div id='carouselExampleIndicators{{i}}' class="carousel slide" data-bs-ride="carousel">
+                        <!-- <ol class="carousel-indicators">
+                            <li *ngFor='let image of product.image; let idx = index'  [ngClass]="idx === 0 ? 'active' : ''"></li>  
+                            data-bs-target='#carouselExampleIndicators{{i}}' data-bs-slide-to={{idx}}
+                        </ol> -->
+                        <div class="carousel-inner mb-4 product-image">
+                            <div *ngFor='let image of product.image; let idx = index' [ngClass]="idx === 0 ? 'carousel-item active' : 'carousel-item'">
+                                <img src="{{image}}" class="d-block img-thumbnail" alt="{{product.title}}">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href='#carouselExampleIndicators{{i}}' target='_self' role="button" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href='#carouselExampleIndicators{{i}}' target='_self' role="button" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </a>
+                    </div>
+
+                </div>
+                <div class="product-infos row col-md-6">
+                    <div class="product-details text-md-end">
+                        <a class="nav-link p-0" routerLink="/products/{{product._id}}"><h2>{{product.title}}</h2></a>
+                        <h3>${{product.price}}</h3>
+                        <!-- ${Rating.render({
+                            value: item.review.rating,
+                            text: `<span class="ps-2">${item.review.numReviews}</span> <a class="nav-link p-0" href="/products/{{product._id}}/#reviews"> reviews</a>`,
+                              })}  -->
+                        <button id="{{product._id}}" class="btn btn-primary btn-lg add-button mt-4" (click)="addToCart($event)">Add to Cart</button>
+                    </div>
+                    <div class="product-ingredient align-self-end mb-3 text-md-end">
+                        <a routerLink="/products/{{product._id}}"><h2>Details...</h2></a>
+                    </div>
+                </div>
+            </li>
+        </div>
+    </ul>

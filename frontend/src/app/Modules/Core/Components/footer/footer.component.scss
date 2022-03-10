@@ -1,0 +1,20 @@
+.page-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin: auto;
+}
+  
+.page-footer span, .page-footer i {
+    color: #212529;
+    font-size: 1.3rem;
+}
+
+.ul-social {
+    padding-left: .7rem;
+}
+
+li:hover {
+    transform: translateY(-2px);
+    transition: .5s all ease;
+}

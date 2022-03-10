@@ -1,0 +1,63 @@
+.div-border {
+    border-top: 0.1rem #00000012  solid;
+    width: 80%;
+    margin: 3rem 0;
+}
+
+.products-list {
+    //margin-top: 7rem;
+}
+
+.product-ingredient h2 {
+    color: #000000a3 !important;
+    &:hover {
+        color: #ff00098a !important;
+    }
+}
+
+h2{
+    color: #c5131c;
+    &:hover {
+        color: #ff00098a !important;
+    }
+}
+
+a {
+    text-decoration: none;
+}
+
+
+
+.product-images, .product-infos {
+    margin-top: 2rem;
+  }
+  
+  .product-image img {
+    height: 20vmax;
+    width: 20vmax;
+  }
+  
+  .product-details {
+    margin-bottom: 1rem;
+  }
+  
+  .product-single {
+    margin-block-end: 3rem;
+  }
+  
+  .product-images .carousel {
+    width: 20vmax;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .product-image img {
+      width: 37vmax !important;
+      height: 37vmax;
+    }
+    .product-images .carousel {
+      width: 37vmax !important;
+    }
+    .products-list {
+        margin-top: 3rem;
+    }
+  }

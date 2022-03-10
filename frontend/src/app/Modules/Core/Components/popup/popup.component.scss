@@ -1,0 +1,22 @@
+.tooltip-bar{
+    position: fixed;
+    top: 0;
+    z-index: 10000;
+    width: 100vw;
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+}
+.tooltip-container{
+    min-width: 35%;
+    height: 100%;
+    border-radius: .25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .5s linear all;
+}
+.invalid-tooltip{
+    position:relative !important;
+    top: 0 !important;
+}

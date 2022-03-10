@@ -1,0 +1,15 @@
+.info-section {
+    margin-top: 4rem;
+    text-align: center;
+}
+
+.service-box h4 {
+    margin-inline: 1rem;
+    line-height: inherit;
+}
+a {
+    color: #c3151c !important;
+    &:hover {
+        color: #a6676a !important;
+      }
+}

@@ -1,0 +1,70 @@
+.menu-text-top {
+    position: absolute;
+    top: -3.5vw;
+    color: black;
+    font-size: 3vw;
+    font-weight: 900;
+    transition: all linear 1s;
+    animation: sliding 1s linear forwards 1;
+}
+ 
+@keyframes sliding {
+    0% {
+    transform: translateX(100%);
+    }
+    100% {
+    transform: translateX(0%);
+    }
+}
+    
+
+
+
+
+
+.menu-container {
+background-color: #c3151c;
+transform: skewY(-7deg);
+padding-bottom: 6rem;
+padding-top: 2rem;
+box-shadow: rgb(0 0 0 / 35%) 20px 21px 20px;
+margin-top: 6rem;
+}
+
+
+
+.menu-container ul {
+    transform: skewY(7deg);
+}
+
+.menu-container a, .menu-container, .menu-container span:last-child {
+    color: white !important;
+    text-decoration: none !important;
+}
+
+.menu-single img {
+    width: 18vmax;
+    height: 18vmax;
+    box-shadow: rgb(0 0 0 / 35%) 20px 21px 20px;
+    z-index: 3;
+}
+
+.img-thumbnail {
+    padding: 0;
+}
+
+
+.menu-single-price {
+    font-weight: bold;
+    padding: .5rem 1rem;
+}
+
+
+.container-fluid {
+    margin-block-end: 3rem;
+}
+
+.menu-single .rating {
+    margin-top: .5rem;
+}
+ 

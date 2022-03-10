@@ -1,0 +1,63 @@
+<header #header class="header-content">
+  <nav class="navbar pb-1 pb-sm-3 pb-md-0 navbar-expand-md">
+    <div class="container-fluid">
+      <a class="navbar-toggler" routerLink="/" aria-current="page">
+        <img class="navbar-toggler-img" src="/assets/image/writtenred.png">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <fa-icon [icon]="faBars"></fa-icon>
+      </button>
+      <a class="collapse navbar-collapse" routerLink="/">
+        <div class="header-img-logo"></div>
+      </a>
+      <div class="collapse navbar-collapse navbar-content align-self-start" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto ms-md-auto mb-2 mb-lg-0">
+          <li *ngIf='user?.isAdmin' class="nav-item pe-3"> 
+            <a class="nav-link nav-custom" routerLink="/admin">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-custom" routerLink="/" aria-current="page">
+              <fa-icon [icon]="faHome" [styles]="innerWidth < 768 && !hasScrolled ? {'color': 'white'} : innerWidth < 768 && hasScrolled ? { 'color': '#212529' } : {}"></fa-icon>
+              <p>home</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-custom" routerLink="/products">
+              <fa-icon [icon]="faPizzaSlice" [styles]="innerWidth < 768 && !hasScrolled ? {'color': 'white'} : innerWidth < 768 && hasScrolled ? { 'color': '#212529' } : {}"></fa-icon>
+              <p>pizza</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-custom" routerLink="/info">
+              <fa-icon [icon]="faQuestionCircle" [styles]="innerWidth < 768 && !hasScrolled ? {'color': 'white'} : innerWidth < 768 && hasScrolled ? { 'color': '#212529' } : {}"></fa-icon>
+              <p>info</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-custom" routerLink="/contact">
+              <fa-icon [icon]="faIdCard" [styles]="innerWidth < 768 && !hasScrolled ? {'color': 'white'} : innerWidth < 768 && hasScrolled ? { 'color': '#212529' } : {}"></fa-icon>
+              <p>contact</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a *ngIf='!user' class="nav-link nav-custom" routerLink="/auth/signin">
+              <fa-icon [icon]="faUser" [styles]="innerWidth < 768 && !hasScrolled ? {'color': 'white'} : innerWidth < 768 && hasScrolled ? { 'color': '#212529' } : {}"></fa-icon>
+              <p>login</p>
+            </a>
+            <a *ngIf='user' class="nav-link nav-custom" routerLink="/user/profile">
+              <fa-icon [icon]="faUser" [styles]="innerWidth < 768 && !hasScrolled ? {'color': 'white'} : innerWidth < 768 && hasScrolled ? { 'color': '#212529' } : {}"></fa-icon>
+              <p>profile</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <div *ngIf='(cartLength && (innerWidth > 768))' class="cart-popup">{{cartLength}}</div>
+            <a class="nav-link nav-custom cart" routerLink="/cart">
+              <fa-icon [icon]="faCartPlus" [styles]="(cartLength && (innerWidth > 768)) ? {'color': 'red'} : innerWidth < 768 && !hasScrolled ? {'color': 'white'} : {}"></fa-icon>
+              <p>cart</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

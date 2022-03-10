@@ -1,0 +1,46 @@
+<form [formGroup]="signInForm" class="row justify-content-center mt-5" (submit)="signIn()">
+    <ul class="col-sm-10 col-md-8 col-lg-6 col-xxl-4 list-unstyled pt-sm-5">
+        <li class="mb-4 mb-sm-5 text-center">
+            <h1>Sign In</h1>
+        </li>
+        <li class="form-floating">
+            <input 
+                #email
+                class="form-control signin-input" 
+                type="email" 
+                formControlName='email' 
+                placeholder="Email"
+                [ngClass]="
+                    signInForm.controls['email'].hasError('validateEmail') 
+                        ? 'is-invalid' 
+                        : !signInForm.controls['email'].errors 
+                            ? 'is-valid' 
+                            : ''
+                " 
+            />
+            <label for="email">Email</label>
+        </li>
+        <li class="form-floating">
+            <input 
+                class="form-control signin-input" 
+                type="password" 
+                formControlName='password' 
+                placeholder="Password"
+                [ngClass]="invalid ? 'is-invalid' : ''"
+            />
+            <label for="password">Password</label>
+        </li>
+        <li class="my-4 text-center">
+            <button [disabled]="!signInForm.valid || loading" type="submit" class="btn btn-primary">{{loading ? 'Logging In...' : 'Sign In'}}</button>
+        </li>
+        <li class="text-center">
+            New User? <a class="nav-link create-account" routerLink="/auth/register"><small>Create your Account</small></a>
+        </li>
+        <li class="text-center">
+            <a class="nav-link" routerLink="/auth/resetpassword"><small>Forgot your password?</small></a>
+        </li>
+        <li class="text-center">
+            <a class="nav-link" routerLink="/auth/resendtoken"><small>Verify your Account?</small></a>
+        </li>
+    </ul>
+</form>

@@ -1,0 +1,30 @@
+<section class="menu-container row justify-content-center">
+    <h2 class="menu-text-top">The First Frozen Pizza that looks and taste Artisan!</h2>
+    <h2 class="menu-text position-absolute top-0 text-end">Free Shipping*</h2>
+    <h2 class="menu-text position-absolute bottom-0">Pick Your Favourite!</h2>
+      <ul class="row justify-content-center mb-0 list-unstyled">
+        <li *ngFor="let product of products" class="menu-single col-md-4 col-6 col-sm-4 text-center my-3" data-id={{product._id}}>
+          <a routerLink='/products/{{product._id}}'>
+            <img class="menu-single-img img-thumbnail" src={{product.image[0]}} alt={{product.title}} />
+          </a>
+          <div class="menu-single-name">
+            <a routerLink="/products/{{product._id}}">
+              {{product.title}}
+            </a>
+          </div>
+          <!-- <div class="menu-single-rating">
+            ${Rating.render(
+              {
+                value: product.review.rating,
+                text: `
+                  <span class="ps-2">${product.review.numReviews}</span> 
+                  <a class="p-0" href="/products/{{product._id}}/#reviews"> reviews</a>
+              `}
+            )}
+          </div> -->
+          <div class="menu-single-price">
+            $ {{product.price}}
+          </div>
+        </li>
+      </ul> 
+</section>

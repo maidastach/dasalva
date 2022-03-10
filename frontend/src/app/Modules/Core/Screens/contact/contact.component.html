@@ -1,0 +1,93 @@
+<div class="contact-container p-4 mt-3">
+    <div class="h1 text-center">
+        Contact us
+    </div>
+    <p class="ms-2 pb-4 text-center">
+        <small>Send through your enquiry or a feedback:</small>
+    </p>
+    <form class="col-md-6 offset-md-3 mt-5" [formGroup]="contactForm" (submit)="sendContactForm()">
+        <div class="form-floating">
+            <input 
+                #name 
+                class="form-control" 
+                type="text" 
+                placeholder="Name" 
+                formControlName='name'
+                [ngClass]="
+                        contactForm.controls['name'].pristine 
+                            ? '' 
+                            : contactForm.controls['name'].errors 
+                                ? 'is-invalid' 
+                                : 'is-valid'
+                "
+            />
+            <label for="name">Name:</label>
+        </div>
+        <div class="form-floating">   
+            <input 
+                class="form-control" 
+                type="email" 
+                placeholder="Your Email" 
+                formControlName='email'
+                [ngClass]="
+                    contactForm.controls['email'].hasError('validateEmail') 
+                        ? 'is-invalid' 
+                        : !contactForm.controls['email'].errors 
+                            ? 'is-valid' 
+                            : ''
+                " 
+            />
+            <label for="email">Email:</label>
+        </div>        
+        <div class="form-floating">
+            <input 
+                class="form-control" 
+                type="text" 
+                placeholder="Phone Number" 
+                formControlName='telephone'
+                [ngClass]="
+                    contactForm.controls['telephone'].pristine
+                        ? '' 
+                        : contactForm.controls['telephone'].errors 
+                            ? 'is-invalid' 
+                            : 'is-valid'
+                " 
+            />
+            <label for="telephone">Contact Number:</label>
+        </div>
+        <div class="form-floating">
+            <input 
+                class="form-control" 
+                type="text" 
+                placeholder="Suburb" 
+                formControlName='city'
+                [ngClass]="
+                    contactForm.controls['city'].pristine
+                        ? '' 
+                        : contactForm.controls['city'].errors 
+                            ? 'is-invalid' 
+                            : 'is-valid'
+                " 
+            />   
+            <label for="city">Suburb:</label>
+        </div>
+        <div class="form-floating">     
+            <textarea 
+                class="form-control textarea contact-textarea" 
+                placeholder="Message \ Special requirements" 
+                formControlName='message'
+                [ngClass]="
+                    contactForm.controls['message'].pristine
+                        ? '' 
+                        : contactForm.controls['message'].errors 
+                            ? 'is-invalid' 
+                            : 'is-valid'
+                    " 
+            ></textarea>
+            <label for="message">Message:</label>
+        </div>
+        <div class="row justify-content-center mt-4">
+            <button [disabled]='!contactForm.valid || loading' class="col-6 btn btn-info" type="submit">{{loading ? 'Sending...' : 'SEND MESSAGE'}}</button>
+        </div>
+    </form>
+</div>

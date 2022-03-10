@@ -1,0 +1,61 @@
+<form (submit)='selectShipping($event)' (change)="changer(inlineRadioOptions)" class="shipping-form">
+    <ul class="row form-items list-unstyled px-2 px-md-5">
+        <li class="mt-5">
+            <h1>Select Address</h1>
+        </li>
+        <div class="row">
+            <li class="col-12 text-center m-auto">
+                <div class="text-center my-4">
+                    Select Your Delivery Method:
+                </div>
+                <div *ngFor="let address of shipping; let i = index" class="form-check form-check-inline my-4 mx-3 col-4 col-sm-auto align-top  radio-address">
+                    <input ngModel #inlineRadioOptions='ngModel' class="form-check-input" type="radio" id='radio-input-{{i}}' [value]="address._id" name="inlineRadioOptions"/>
+                    <label class="form-check-label" for='radio-input-{{i}}'>
+                        <span id="span-addressA">{{address.addressA}}</span><br>
+                        <span *ngIf="address.addressB" id="span-addressB">{{address.addressB}}<br></span>
+                        <span id="span-city">{{address.city}}</span>
+                        <br><span id="span-postalCode">{{address.postalCode}}</span>
+                        <br><span id="span-state">{{address.state}}</span>
+                        <br>
+                        <div class="d-flex justify-content-center">
+                            <button (click)="editShipping(address._id)" type="button" id="edit-button-{{i}}" class="edit-btn btn text-primary btn-sm btn-light" style="font-size: 0.7rem;">Edit</button>
+                            <button (click)="deleteShipping(address._id)" type="button" id="delete-button-{{i}}" class="delete-btn text-danger btn btn-sm btn-light" style="font-size: 0.7rem;">Delete</button>
+                        </div> 
+                    </label>
+                </div>
+                    
+                <div class="form-check form-check-inline my-4 mx-3 col-4 col-sm-auto align-top radio-address">
+                    <input ngModel #inlineRadioOptions='ngModel' class="form-check-input" type="radio" name="inlineRadioOptions" id='new-address' [value]="false">
+                    <label class="form-check-label fw-bold" for='new-address'>
+                        New Address
+                    </label>
+                </div>
+            </li>
+            <li class="col-12 text-center m-auto">    
+                <div class="form-check form-check-inline my-4 mx-3 col-sm-auto align-top radio-address" aria-describedby="pickUpInfo">
+                    <input ngModel #inlineRadioOptions='ngModel' class="form-check-input" type="radio" name="inlineRadioOptions" id='pickUp' value="pickUp">
+                    <label class="form-check-label" for='pickUp'>
+                        <span class="fw-bold">Pick Up</span><br>
+                        <span id="span-addressA">Da Mario</span><br>
+                        <span id="span-addressB">36 Morley Avenue</span><br>
+                        <span id="span-city">Rosebery</span><br>
+                        <span id="span-postalCode">2018</span><br>
+                        <span id="span-state">t: (02)96692242</span>
+                    </label>
+                    <div id="pickUpInfo" class="form-text form-small text-center">
+                        Might be ready on the same day,<br> depending on business opening hours
+                    </div>
+                </div>
+            </li>         
+        </div>
+        <div class="button-container">
+            <li class="my-5">
+                <button type="button" class="btn btn-lg btn-primary w-75 shipping-button" (click)="backButton()">Back</button>
+            </li>  
+            <li class="my-5">
+                <button [disabled]="!validateButton" type="submit" class="btn w-75 btn-primary shipping-button" id="">Continue</button>
+            </li> 
+        </div>
+        
+    </ul>
+</form>

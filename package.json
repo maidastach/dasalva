@@ -1,0 +1,40 @@
+{
+  "name": "dasalva",
+  "version": "1.0.0",
+  "description": "Da Salva Ecommerce",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --watch backend --exec npm run build",
+    "build": "rm -rf dist && babel backend -d dist && npm run serve",
+    "serve": "node dist/index.js"
+  },
+  "keywords": [
+    "Da",
+    "Salva",
+    "Pizza"
+  ],
+  "author": "Salvatore De Rosa",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-mongo": "^4.6.0",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2",
+    "express-async-handler": "^1.2.0",
+    "express-session": "^1.17.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.1.2",
+    "multer": "^1.4.4",
+    "nodemailer": "^6.7.2",
+    "path": "^0.12.7",
+    "stripe": "^8.195.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.5",
+    "@babel/node": "^7.16.5",
+    "@babel/preset-env": "^7.16.5",
+    "nodemon": "^2.0.15"
+  }
+}

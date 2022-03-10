@@ -1,0 +1,32 @@
+.home {
+    transition: all .5s linear;
+    margin-top: auto;
+}
+ 
+.home-sticky {
+     transition: none;
+     margin-top: 200px;
+}
+
+.hero-img-inner{
+    height: 18vmax;
+    background-repeat: no-repeat;
+    background-image: url(/assets/image/gastransp.png);
+    background-size: contain;
+    background-position: center;
+     /*mask-image: url(image/circle.svg);
+     mask-size: 45vmin;
+     mask-repeat: no-repeat;
+     mask-position: center;
+     -webkit-mask-image: url(image/circle.svg);
+     -webkit-mask-size: 45vmin;
+     -webkit-mask-repeat: no-repeat;
+     -webkit-mask-position: center;*/
+     /*outline: white;
+     outline-style: auto;*/
+}
+   
+ 
+ 
+ 
+ 

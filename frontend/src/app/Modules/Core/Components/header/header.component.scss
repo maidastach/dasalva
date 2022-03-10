@@ -1,0 +1,163 @@
+.header-content {
+    background-color: #c3151c;
+    transform: skewY(7deg);
+    transition: all 0.5s linear;
+    height: auto;
+    box-shadow: rgb(0 0 0 / 35%) 20px 21px 20px;
+    padding-bottom: 1rem;
+}
+
+.header-content ul a {
+    color: #212529;
+    font-size: larger;
+    opacity: 80%;
+    text-decoration: none;
+  &:hover{
+    color: #c3151c !important;
+  }
+}
+
+@media only screen and (min-width: 590px) {
+    .header-content {
+        min-height: 5.7rem;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .header-content {
+        min-height: none;
+        padding-bottom: 0;
+    }
+}
+
+.sticky {
+    position: fixed !important;
+    top: 0;
+    width: 100%;
+    background-color: white;
+    opacity: 85%;
+    z-index: 100;
+    transition: all 0.5s linear;
+    transform: skewY(0deg);
+    box-shadow: none;
+    min-height: auto !important;
+    padding-bottom: 0;
+}
+
+.header-img-logo {
+    background-image: url(/assets/image/writtenred.png);
+    height: 17vmax;
+    width: 25vmax;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-top: 1rem;
+    transition: all 0.5s linear;
+}
+
+.header-img-logo-sticky {
+    background-image: url(/assets/image/logo.png);
+    transition: all 0.5s linear;
+    width: 8vmax;
+    height: 6vmax;
+    margin-top: 0;
+}
+
+.nav-link {
+    display: inline-block;
+    text-align: center;
+}
+
+p {
+    color: #212529 !important;
+} 
+
+.cart-popup{
+    background-color: #c3151c;
+    position: absolute;
+    top: -7px;
+    color: beige;
+    font-size: smaller;
+    padding: 2px;
+    border-radius: 50%;
+    width: 23px;
+    height: 23px;
+    text-align: center;
+}
+
+.nav-item p{
+    font-size: 0.8rem;
+}
+
+
+header .container-fluid {
+    margin-block-end: 0;
+}
+
+
+.header-content img {
+    width: 1.1rem;
+}
+
+.navbar-toggler img {
+    width: 5rem;
+}
+
+.navbar-content {
+    transition: all linear .5s;
+    transform: translateY(0);
+}
+
+.navbar {
+    transform: skewY(-7deg);
+    transition: all 0.5s linear;
+}
+
+.navbar-sticky {
+    transition: all 0.5s linear;
+    transform: skewY(0deg);
+}
+
+@media only screen and (min-width: 768px) {
+
+    header .nav-item {
+        width: 4vw;
+        height: 2vmax;
+    }
+    
+    header .nav-link {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    header .nav-link p {
+        visibility: hidden;
+        opacity: 0;
+        transition: all linear .5s;
+        font-size: .9rem;
+    }
+    
+    header .nav-link:hover p {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+        
+    header .nav-link i {
+        text-align: center;
+        width: 11vw;
+    }
+    ul {
+        width: 50px;
+        text-align: center;  
+    }
+    li {
+        height: 55px;
+    }
+}
+    
+.nav-link-black {
+    color: inherit !important;
+}

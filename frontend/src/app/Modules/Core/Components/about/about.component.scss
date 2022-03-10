@@ -1,0 +1,21 @@
+.about-section {
+    margin-top: 4rem;
+    padding-top:4rem;
+    padding-bottom: 4rem;
+    background-color: #c3151c;
+    transform: skewY(7deg);
+    color: white;
+    box-shadow: rgb(0 0 0 / 35%) 20px 21px 20px;
+    text-align: center;
+  }
+
+  .about-section-inside a {
+    color: whitesmoke !important;
+    font-size: larger;
+    &:hover {
+      color: #a6676a !important;
+    }
+  }
+  .about-content {
+    transform: skewY(-7deg);
+  }

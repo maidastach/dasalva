@@ -1,0 +1,123 @@
+<form [formGroup]="registerForm" (submit)="register()">
+    <ul class="list-unstyled mt-5">
+        <li class="mb-5 text-center h1">
+            Create Account
+        </li>
+        <div class="row justify-content-center my-2">
+            <li class="form-floating col-md-5 col-xl-4">
+                <input 
+                    #fname
+                    class="form-control" 
+                    type="name"
+                    formControlName='fname' 
+                    placeholder='First Name' 
+                    [ngClass]="
+                        registerForm.controls['fname'].pristine 
+                            ? '' 
+                            : registerForm.controls['fname'].errors 
+                                ? 'is-invalid' 
+                                : 'is-valid'
+                    "
+                />
+                <label class="form-label" for="fname">First Name</label>
+            </li>
+            <li class="form-floating col-md-5 col-xl-4">
+                <input 
+                    class="form-control" 
+                    type="name" 
+                    formControlName='lname' 
+                    placeholder='Last Name'
+                    [ngClass]="
+                        registerForm.controls['lname'].pristine 
+                            ? '' 
+                            : registerForm.controls['lname'].errors 
+                                ? 'is-invalid' 
+                                : 'is-valid'
+                    "
+                />
+                <label class="form-label" for="lname">Last Name</label>
+            </li>
+        </div>
+        <div class="row justify-content-center my-2">
+            <li class="form-floating col-md-5 col-xl-4">
+                <input 
+                    class="form-control" 
+                    type="email" 
+                    formControlName='email' 
+                    placeholder='example@email.com'
+                    [ngClass]="
+                    registerForm.controls['email'].hasError('validateEmail') 
+                        ? 'is-invalid' 
+                        : !registerForm.controls['email'].errors 
+                            ? 'is-valid' 
+                            : ''
+                    " 
+                />
+                <label class="form-label" for="email">Email</label>
+            </li>
+            <li class="form-floating col-md-5 col-xl-4">
+                <input 
+                    class="form-control" 
+                    type="text" 
+                    formControlName='telephone' 
+                    placeholder='123456789'
+                    [ngClass]="
+                    registerForm.controls['telephone'].pristine
+                        ? '' 
+                        : registerForm.controls['telephone'].errors 
+                            ? 'is-invalid' 
+                            : 'is-valid'
+                    "
+                />
+                <label class="form-label" for="telephone">Phone Number</label>
+            </li>
+        </div>
+        <li class="row justify-content-center my-2" aria-describedby="passwordHelpBlock">
+            <div class="col-md-5 col-xl-4 form-floating">
+                <input 
+                    class="form-control" 
+                    type="password" 
+                    formControlName='password' 
+                    placeholder='password' 
+                    [ngClass]="
+                    registerForm.controls['password'].hasError('validatePassword') 
+                        ? 'is-invalid' 
+                        : !registerForm.controls['password'].errors 
+                            ? 'is-valid' 
+                            : ''
+                    " 
+                />
+                <label class="form-label" for="password">Password</label>
+            </div>
+            <div class="col-md-5 col-xl-4 form-floating">
+                <input 
+                    class="form-control" 
+                    type="password"
+                    formControlName='repassword' 
+                    placeholder='password'
+                    [ngClass]="
+                    registerForm.controls['repassword'].hasError('notMatching') 
+                        ? 'is-invalid' 
+                        : ''
+                    "
+                />
+                <label class="form-label" for="repassword">Confirm Password</label>
+            </div>
+            <div id="passwordHelpBlock" class="form-text form-small text-center">
+                Password must be 8-20 characters long and including one number<br>
+                We'll never share your details with anyone else.
+            </div>
+        </li>
+        <div class="row text-center py-4">
+            <li>
+                <button [disabled]="!registerForm.valid || loading" type="submit" class="btn btn-primary btn-lg mb-3">Register</button>
+            </li>
+            <li>
+                <div>
+                    Already Registered?
+                    <a routerLink="/auth/signin">Sign In</a>
+                </div>
+            </li>
+        </div>    
+    </ul>
+</form>

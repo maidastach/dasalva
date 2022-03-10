@@ -1,0 +1,9 @@
+<mat-toolbar color="primary">
+       <a mat-button routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/admin">Dashboard</a>
+       <a mat-button routerLinkActive="active" routerLink="/admin/orderlist">Orders</a>
+       <a mat-button routerLinkActive="active" routerLink="/admin/userlist">Users</a>
+       <a mat-button routerLinkActive="active" routerLink="/admin/contactlist">Contacts</a>
+       <a mat-button routerLinkActive="active" routerLink="/admin/deliverinstructions" class='deliver'>Deliver Instr.</a>
+</mat-toolbar>
+
+<router-outlet></router-outlet>
